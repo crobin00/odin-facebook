@@ -14,11 +14,11 @@
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "w-full mb-4 rounded-md placeholder:font-extralight border-slate-300" %>
+          <%= f.email_field :email, autofocus: true, required: true, autocomplete: "email", placeholder: "Email", class: "w-full mb-4 rounded-md placeholder:font-extralight border-slate-300" %>
         </div>
 
         <div class="field">
-          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "w-full mb-2 rounded-md placeholder:font-extralight border-slate-300" %>
+          <%= f.password_field :password, required: true, autocomplete: "current-password", placeholder: "Password", class: "w-full mb-2 rounded-md placeholder:font-extralight border-slate-300" %>
         </div>
 
         <div class="field mb-2">
