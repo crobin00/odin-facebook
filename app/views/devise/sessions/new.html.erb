@@ -1,0 +1,46 @@
+<div class="bg-sky-50 h-screen">
+  <div class="grid lg:grid-cols-2 lg:grid-rows-1 w-full justify-items-center items-center
+              sm:px-16 py-16 max-w-6xl mx-auto">
+    <div class="pb-8">
+      <h1 class="text-5xl font-medium mb-2 text-center lg:text-left">odinbook</h1>
+      <p class="w-64 sm:w-96 text-xl text-center lg:text-left">Connect with fellow odin students and the world around you on Odinbook</p>
+    </div>
+
+
+    <div class="bg-white p-4 sm:w-96 rounded-lg shadow-xl">
+      <div>
+        <p class="text-red-500"><%= alert %></p>
+      </div>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "w-full mb-4 rounded-md placeholder:font-extralight border-slate-300" %>
+        </div>
+
+        <div class="field">
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "w-full mb-2 rounded-md placeholder:font-extralight border-slate-300" %>
+        </div>
+
+        <div class="field mb-2">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, class: "ml-2"%>
+        </div>
+
+        <div>
+          <%= f.submit "Log in", class: "w-full bg-blue-500 h-10 rounded-md cursor-pointer text-white" %>
+        </div>
+      <% end %>
+
+      <div class="my-3 flex justify-center">
+        <%= link_to "Forgot password?", new_password_path(resource_name), class: "text-sm text-blue-400 text-center" %><br />
+      </div>
+
+      <hr class="bg-gray-100 mb-4">
+
+      <div>
+          <%= button_to "Create new account", new_registration_path(resource_name), :method => :get, class: "w-full bg-green-600 h-10 rounded-md cursor-pointer text-white" %><br />
+      </div>
+
+    </div>
+  </div>
+</div>
