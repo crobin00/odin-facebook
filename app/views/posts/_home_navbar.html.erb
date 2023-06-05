@@ -83,12 +83,3 @@
     <% end %>
   </div>
 </div>
-
-<div
-  class="grid lg:grid-cols-2 lg:grid-rows-1 w-full justify-items-center items-center sm:px-16 py-16 max-w-6xl mx-auto"
->
-  <% @posts.each do |post| %>
-  <h4><%= post.body %></h4>
-  <p><%= post.author.first_name %></p>
-  <% end %>
-</div>

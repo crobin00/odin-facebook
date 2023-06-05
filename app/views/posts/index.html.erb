@@ -1,1 +1,21 @@
-<div class="bg-sky-50 h-screen"><%= render "home_navbar" %></div>
+<div class="bg-sky-50 h-screen">
+  <%= render "home_navbar" %>
+
+  <div>
+
+    <!-- Form -->
+    <div>
+      <%= form_with model: @post do |f| %>
+        <div>
+          <%= f.text_field :body, required: true, autocomplete: "off", placeholder: "What's on your mind, #{current_user.first_name}?" %>
+        </div>
+
+        <div>
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Posts -->
+  </div>
+</div>
