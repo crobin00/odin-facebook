@@ -1,66 +1,92 @@
 <div class="bg-sky-50 h-screen">
-  <div class="grid lg:grid-cols-2 lg:grid-rows-1 w-full justify-items-center items-center
-              sm:px-16 py-16 max-w-6xl mx-auto">
+  <div
+    class="grid lg:grid-cols-2 lg:grid-rows-1 w-full justify-items-center items-center sm:px-16 py-16 max-w-6xl mx-auto"
+  >
     <div class="pb-8">
-      <h1 class="text-5xl font-medium mb-2 text-center lg:text-left">odinbook</h1>
-      <p class="w-64 sm:w-96 text-xl text-center lg:text-left">Connect with fellow odin students and the world around you on Odinbook</p>
+      <h1 class="text-5xl font-medium mb-2 text-center lg:text-left">
+        odinbook
+      </h1>
+      <p class="w-64 sm:w-96 text-xl text-center lg:text-left">
+        Connect with fellow odin students and the world around you on Odinbook
+      </p>
     </div>
-
 
     <div class="bg-white p-4 sm:w-96 rounded-lg shadow-xl">
       <div>
         <p class="text-red-500"><%= alert %></p>
       </div>
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <div class="flex w-full gap-2">
-          <%= f.text_field :first_name, autocomplete: "first-name", required: true, placeholder: "First name", class: "w-full mb-2 rounded-md placeholder:font-extralight border-slate-300" %>
-          <%= f.text_field :last_name, autocomplete: "last_name", required: true, placeholder: "Last name", class: "w-full mb-2 rounded-md placeholder:font-extralight border-slate-300" %>
-        </div>
-
-        <div>
-          <p class="text-red-500"><%= resource.errors.full_messages.find { |e| e.include?("Email") }%></p>
-        </div>
-        <div class="field">
-          <%= f.email_field :email, autocomplete: "email", required: true, placeholder: "Email", class: "w-full mb-2 rounded-md placeholder:font-extralight border-slate-300" %>
-        </div>
-
-        <div class="field">
-          <% if @minimum_password_length %>
-            <em class="text-sm font-extralight">(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "current-password", required: true, placeholder: "Password", class: "w-full mb-2 rounded-md placeholder:font-extralight border-slate-300" %>
-        </div>
-
-        <div class="field">
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true, placeholder: "Password confirmation", class: "w-full mb-2 rounded-md placeholder:font-extralight border-slate-300"  %>
-        </div>
-
-        <div>
-          <p class="text-sm font-extralight">Gender</p>
-        </div>
-        <div class="flex w-full gap-2 mb-2">
-          <div class="w-full flex justify-around items-center py-2 rounded-md placeholder:font-extralight border border-slate-300">
-            <%= f.label :gender_male, "Male", class: "font-extralight" %>
-            <%= f.radio_button :gender, "male", required: true %>
-          </div>
-          <div class="w-full flex justify-around items-center py-2 rounded-md placeholder:font-extralight border border-slate-300">
-            <%= f.label :gender_female, "Female", class: "font-extralight" %>
-            <%= f.radio_button :gender, "female", required: true %>
-          </div>
-        </div>
-
-        <div>
-          <%= f.submit "Sign up", class: "w-full bg-blue-500 h-10 rounded-md cursor-pointer text-white" %>
-        </div>
-      <% end %>
-
-      <hr class="bg-gray-100 my-4">
-
-      <div>
-          <%= button_to "Log in", new_session_path(resource_name), :method => :get, class: "w-full bg-green-600 h-10 rounded-md cursor-pointer text-white" %><br />
+      <%= form_for(resource, as: resource_name, url:
+      registration_path(resource_name)) do |f| %>
+      <div class="flex w-full gap-2">
+        <%= f.text_field :first_name, autocomplete: "first-name", required:
+        true, placeholder: "First name", class: "w-full mb-2 rounded-md
+        placeholder:font-extralight border-slate-300" %> <%= f.text_field
+        :last_name, autocomplete: "last_name", required: true, placeholder:
+        "Last name", class: "w-full mb-2 rounded-md placeholder:font-extralight
+        border-slate-300" %>
       </div>
 
+      <div>
+        <p class="text-red-500">
+          <%= resource.errors.full_messages.find { |e| e.include?("Email") }%>
+        </p>
+      </div>
+      <div class="field">
+        <%= f.email_field :email, autocomplete: "email", required: true,
+        placeholder: "Email", class: "w-full mb-2 rounded-md
+        placeholder:font-extralight border-slate-300" %>
+      </div>
+
+      <div class="field">
+        <% if @minimum_password_length %>
+        <em class="text-sm font-extralight"
+          >(<%= @minimum_password_length %> characters minimum)</em
+        >
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "current-password",
+        required: true, placeholder: "Password", class: "w-full mb-2 rounded-md
+        placeholder:font-extralight border-slate-300" %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password_confirmation, autocomplete:
+        "new-password", required: true, placeholder: "Password confirmation",
+        class: "w-full mb-2 rounded-md placeholder:font-extralight
+        border-slate-300" %>
+      </div>
+
+      <div>
+        <p class="text-sm font-extralight">Gender</p>
+      </div>
+      <div class="flex w-full gap-2 mb-2">
+        <div
+          class="w-full flex justify-around items-center py-2 rounded-md placeholder:font-extralight border border-slate-300"
+        >
+          <%= f.label :gender_male, "Male", class: "font-extralight" %> <%=
+          f.radio_button :gender, "male", required: true %>
+        </div>
+        <div
+          class="w-full flex justify-around items-center py-2 rounded-md placeholder:font-extralight border border-slate-300"
+        >
+          <%= f.label :gender_female, "Female", class: "font-extralight" %> <%=
+          f.radio_button :gender, "female", required: true %>
+        </div>
+      </div>
+
+      <div>
+        <%= f.submit "Sign up", class: "w-full bg-blue-500 h-10 rounded-md
+        cursor-pointer text-white" %>
+      </div>
+      <% end %>
+
+      <hr class="bg-gray-100 my-4" />
+
+      <div>
+        <%= button_to "Log in", new_session_path(resource_name), :method =>
+        :get, class: "w-full bg-green-600 h-10 rounded-md cursor-pointer
+        text-white" %><br />
+      </div>
     </div>
   </div>
 </div>
