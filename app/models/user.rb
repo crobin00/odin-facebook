@@ -12,4 +12,5 @@ class User < ApplicationRecord
   enum :gender, { male: 0, female: 1 }
 
   has_many :posts, foreign_key: "author_id"
+  has_many :likes, dependent: :destroy
 end
