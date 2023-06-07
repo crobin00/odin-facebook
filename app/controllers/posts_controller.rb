@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
+      current_user.likes.create(post: @post)
       redirect_to root_path
     else
       render :index, status: :unprocessable_entity
