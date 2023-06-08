@@ -1,4 +1,14 @@
-<%= form_with url: post_comments_path(post) do |f| %>
-  <%= f.text_area :body, size: "5x5" %>
-  <%= f.submit %>
-<% end %>
+<div data-controller="visibility">
+  <p class="cursor-pointer" data-action="click->visibility#toggle">Reply</p>
+  <div class="hidden" data-visibility-target="hideable">
+    <%= form_with url: post_comments_path(post) do |f| %>
+      <div>
+        <%= f.text_field :body, required: true, autocomplete: "off", 
+  class: "w-full my-2 rounded-md placeholder:font-extralight
+  border-slate-300 bg-gray-100 text-sm" %>
+      </div>
+      <%= f.submit "Post comment", class: "bg-blue-400 h-8 px-2 rounded-md
+  cursor-pointer text-white"  %>
+    <% end %>
+  </div>
+</div>
