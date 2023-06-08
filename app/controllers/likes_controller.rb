@@ -3,13 +3,13 @@ class LikesController < ApplicationController
 
   def create
     current_user.likes.create(post: @post) unless already_liked?
-    redirect_to root_path
+    redirect_back_or_to root_path
   end
 
   def destroy
     @like = @post.likes.find(params[:id])
     @like.destroy if already_liked?
-    redirect_to root_path
+    redirect_back_or_to root_path
   end
 
   private
