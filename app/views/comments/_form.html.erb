@@ -1,0 +1,4 @@
+<%= form_with url: post_comments_path(post) do |f| %>
+  <%= f.text_area :body, size: "5x5" %>
+  <%= f.submit %>
+<% end %>
