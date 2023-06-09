@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @posts = Post.where(author: current_user).order(created_at: :desc)
+    @user = User.find(params[:id])
+    @posts = Post.where(author_id: params[:id]).order(created_at: :desc)
     @post = Post.new
   end
 end
