@@ -6,9 +6,14 @@ class FriendRequestsController < ApplicationController
   end
 
   def update
-    friend = User.find(params[:friend_id])
     request = FriendRequest.find(params[:id])
+    friend = User.find(params[:friend_id])
     current_user.friendships.create(friend: friend)
     friend.friendships.create(friend: current_user)
+    request.destroy
+    redirect_to users_path
+  end
+  
+  def destroy
   end
 end
