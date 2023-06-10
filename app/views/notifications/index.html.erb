@@ -1,3 +1,7 @@
-<% @pending_requests.each do |user| %>
-  <%= user.first_name %>
+<% @requests.each do |request| %>
+  <p><%= request.sent_user.first_name %></p>
+  <%= form_with url: friend_request_path(request), method: :patch do |f| %>
+    <%= f.hidden_field :friend_id, value: request.sent_user.id %>
+    <%= f.submit "Accept request" %>
+  <% end %>
 <% end %>

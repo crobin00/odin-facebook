@@ -21,7 +21,10 @@ class="w-full sm:w-10/12 lg:w-8/12 bg-white p-4 rounded-lg shadow-xl mb-4"
         </div>
       <% end %>
       <div>
-        <%= link_to "Send friend request",  user_path(user), class: "sel" %>
+        <%= form_with url: friend_requests_path do |f| %>
+          <%= f.hidden_field :friend_id, value: user.id %>
+          <%= f.submit "Send friend request" %>
+        <% end %>
       </div>
     </div>
   </div>

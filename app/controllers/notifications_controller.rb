@@ -1,5 +1,5 @@
 class NotificationsController < ApplicationController
   def index
-    @pending_requests = current_user.pending_requests
+    @requests = FriendRequest.where(received_user: current_user)
   end
 end
