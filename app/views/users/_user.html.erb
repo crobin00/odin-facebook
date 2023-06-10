@@ -21,7 +21,14 @@ class="w-full sm:w-10/12 lg:w-8/12 bg-white p-4 rounded-lg shadow-xl mb-4"
         </div>
       <% end %>
       <div>
-        <% unless user.friends.include?(current_user) || current_user.pending_requests.include?(user) %>
+        <% isRequested = FriendRequest.where(sent_user: user, received_user: current_user) %>
+        <% noRequest = FriendRequest.where(sent_user: current_user, received_user: user) %>
+        <% if isRequested.exists? %>
+          <%= form_with url: friend_request_path(isRequested.first.id), method: :patch do |f| %>
+            <%= f.hidden_field :friend_id, value: user.id %>
+            <%= f.submit "Accept Request" %>
+          <% end %>
+        <% elsif !user.friends.include?(current_user) && !noRequest.exists? %>
           <%= form_with url: friend_requests_path do |f| %>
             <%= f.hidden_field :friend_id, value: user.id %>
             <%= f.submit "Send friend request" %>

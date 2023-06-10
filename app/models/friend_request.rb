@@ -14,6 +14,6 @@ class FriendRequest < ApplicationRecord
   end
 
   def not_pending
-    errors.add(:already_pending, "friend request already sent") if received_user.pending_requests.include?(sent_user)
+    errors.add(:already_pending, "friend request already sent") if FriendRequest.where(sent_user: sent_user, received_user: received_user).exists?
   end
 end
