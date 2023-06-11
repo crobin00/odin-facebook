@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :notifications
   resources :friend_requests, only: [:create, :update, :destroy]
-  resources :friends, only: [:create, :destroy]
+  resources :friends, only: [:index, :create, :destroy]
 end

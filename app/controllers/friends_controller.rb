@@ -1,4 +1,5 @@
 class FriendsController < ApplicationController
-  def create
+  def index
+    @friends = current_user.friends
   end
 end

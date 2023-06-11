@@ -1,0 +1,10 @@
+<div class="bg-sky-50 min-h-screen">
+  <%= render partial: "shared/user_navbar" %>
+  <div>
+    <div
+      class="grid grid-cols-1 justify-items-center w-full py-16 max-w-6xl mx-auto"
+    >
+      <%= render @friends %>
+    </div>
+  </div>
+</div>
