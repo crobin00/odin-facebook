@@ -1,5 +1,5 @@
 <div class="bg-sky-50 min-h-screen">
-  <%= render partial: "/shared/home_navbar" %>
+  <%= render partial: "/shared/basic_navbar" %>
   <div class="flex flex-col items-center gap-2 mt-16">
     <svg
     class="bg-sky-100 w-36 h-36 rounded-full"
@@ -17,7 +17,7 @@
   >
       <span><%= @user.email %></span>
       <span><%= @user.gender.titleize %></span>
-      <span><%= link_to "#{@user.friends.count} friends", friend_path(@user) %> <span>
+      <span><%= link_to "#{@user.friends.count} #{@user.friends.count == 1 ? 'Friend' : 'Friends'}", friend_path(@user) %> <span>
         </div>
         <div>
           <div
