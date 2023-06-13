@@ -1,5 +1,6 @@
 class FriendsController < ApplicationController
-  def index
-    @friends = current_user.friends
+  def show
+    @user = User.find(params[:id])
+    @friends = @user.friends
   end
 end

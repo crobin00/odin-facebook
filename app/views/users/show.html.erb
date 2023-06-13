@@ -17,17 +17,18 @@
   >
       <span><%= @user.email %></span>
       <span><%= @user.gender.titleize %></span>
-    </div>
-    <div>
-      <div
+      <span><%= link_to "#{@user.friends.count} friends", friend_path(@user) %> <span>
+        </div>
+        <div>
+          <div
       class="grid grid-cols-1 justify-items-center w-full py-16 max-w-6xl mx-auto"
     >
-        <!-- Form -->
-        <% if current_user == @user %>
-          <%= render "posts/form", post: @post %>
-        <% end %>
-        <!-- Posts -->
-        <%= render @posts %>
+            <!-- Form -->
+            <% if current_user == @user %>
+              <%= render "posts/form", post: @post %>
+            <% end %>
+            <!-- Posts -->
+            <%= render @posts %>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
