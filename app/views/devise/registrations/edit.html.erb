@@ -42,19 +42,19 @@
           <% end %><br />
           <%= f.password_field :password, autocomplete: "new-password",
          placeholder: "Password (leave blank if you don't want to change it)", class: "w-full mb-2 rounded-md
-        placeholder:font-extralight border-slate-300" %>
+        placeholder:font-extralight border-slate-300 placeholder:text-xs" %>
         </div>
         <div class="field">
           <%= f.password_field :password_confirmation, autocomplete:
         "new-password", placeholder: "Password confirmation",
         class: "w-full mb-2 rounded-md placeholder:font-extralight
-        border-slate-300" %>
+        border-slate-300 placeholder:text-sm" %>
         </div>
         <div class="field">
           <%= f.password_field :current_password, autocomplete:
         "current-password", placeholder: "We need your current password to confirm your changes",
         class: "w-full mb-2 rounded-md placeholder:font-extralight
-        border-slate-300", required: true %>
+        border-slate-300 placeholder:text-xs", required: true %>
         </div>
         <div>
           <p class="text-sm font-extralight">Gender</p>
