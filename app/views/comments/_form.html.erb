@@ -1,5 +1,5 @@
 <div data-controller="visibility">
-  <p class="cursor-pointer" data-action="click->visibility#toggle">Reply</p>
+  <p class="text-sm cursor-pointer underline" data-action="click->visibility#toggle">Reply</p>
   <div class="hidden" data-visibility-target="hideable">
     <%= form_with url: post_comments_path(post) do |f| %>
       <div>
