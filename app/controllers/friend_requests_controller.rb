@@ -15,5 +15,9 @@ class FriendRequestsController < ApplicationController
   end
   
   def destroy
+    friend = User.find(params[:friend_id])
+    current_user.friends.destroy(friend)
+    friend.friends.destroy(current_user)
+    redirect_to users_path
   end
 end
