@@ -15,22 +15,26 @@
       <% if isRequestedFromThem.exists? %>
         <%= form_with url: friend_request_path(isRequestedFromThem.first.id), method: :patch do |f| %>
           <%= f.hidden_field :friend_id, value: @user.id %>
-          <%= f.submit "Accept Request" %>
+          <%= f.submit "Accept Request", class: "bg-green-500 h-10 px-2 rounded-md
+  cursor-pointer text-white hover:bg-green-800" %>
         <% end %>
       <% elsif isRequestedFromMe.exists? %>
         <%= form_with url: friend_request_path(isRequestedFromMe.first.id), method: :delete do |f| %>
           <%= f.hidden_field :friend_id, value: @user.id %>
-          <%= f.submit "Cancel Request" %>
+          <%= f.submit "Cancel Request", class: "bg-red-500 h-10 px-2 rounded-md
+  cursor-pointer text-white hover:bg-red-800" %>
         <% end %>
       <% elsif !@user.friends.include?(current_user) && !noRequest.exists? %>
         <%= form_with url: friend_requests_path do |f| %>
           <%= f.hidden_field :friend_id, value: @user.id %>
-          <%= f.submit "Send friend request" %>
+          <%= f.submit "Send friend request", class: "bg-blue-500 h-10 px-2 rounded-md
+  cursor-pointer text-white hover:bg-blue-800" %>
         <% end %>
       <% elsif @user.friends.include?(current_user) %>
         <%= form_with url: friend_path(current_user), method: :delete do |f| %>
           <%= f.hidden_field :friend_id, value: @user.id %>
-          <%= f.submit "Unfriend" %>
+          <%= f.submit "Unfriend", class: "bg-red-500 h-10 px-2 rounded-md
+  cursor-pointer text-white hover:bg-red-800"  %>
         <% end %>
       <% end %>
     <% end %>
