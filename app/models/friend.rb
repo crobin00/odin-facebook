@@ -8,7 +8,7 @@ class Friend < ApplicationRecord
   belongs_to :friend, class_name: "User"
 
   def destroy_inverse_relationship
-    friendships = Friend.where(friend: user)
-    friendships.destroy_all
+    friendship = Friend.find_by(user: friend, friend: user)
+    friendship.destroy if friendship
   end
 end

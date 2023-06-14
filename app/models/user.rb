@@ -25,6 +25,10 @@ class User < ApplicationRecord
     self.profile_pic_url = "https://www.gravatar.com/avatar/#{emailHash}?s=56" if self.profile_pic_url.nil?
   end
 
+  def remove_friend(friend)
+    self.friends.destroy(friend)
+  end
+
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
       user.email = auth.info.email

@@ -7,18 +7,44 @@
   >
     <span><%= @user.email %></span>
     <span><%= @user.gender.titleize %></span>
-    <span><%= link_to "#{@user.friends.count} #{@user.friends.count == 1 ? 'Friend' : 'Friends'}", friend_path(@user) %> <span>
-      </div>
-      <div>
-        <div
+    <span><%= link_to "#{@user.friends.count} #{@user.friends.count == 1 ? 'Friend' : 'Friends'}", friend_path(@user) %> </span>
+    <% if current_user != @user %>
+      <% isRequestedFromThem = FriendRequest.where(sent_user: @user, received_user: current_user) %>
+      <% isRequestedFromMe = FriendRequest.where(sent_user: current_user, received_user: @user) %>
+      <% noRequest = FriendRequest.where(sent_user: current_user, received_user: @user) %>
+      <% if isRequestedFromThem.exists? %>
+        <%= form_with url: friend_request_path(isRequestedFromThem.first.id), method: :patch do |f| %>
+          <%= f.hidden_field :friend_id, value: @user.id %>
+          <%= f.submit "Accept Request" %>
+        <% end %>
+      <% elsif isRequestedFromMe.exists? %>
+        <%= form_with url: friend_request_path(isRequestedFromMe.first.id), method: :delete do |f| %>
+          <%= f.hidden_field :friend_id, value: @user.id %>
+          <%= f.submit "Cancel Request" %>
+        <% end %>
+      <% elsif !@user.friends.include?(current_user) && !noRequest.exists? %>
+        <%= form_with url: friend_requests_path do |f| %>
+          <%= f.hidden_field :friend_id, value: @user.id %>
+          <%= f.submit "Send friend request" %>
+        <% end %>
+      <% elsif @user.friends.include?(current_user) %>
+        <%= form_with url: friend_path(current_user), method: :delete do |f| %>
+          <%= f.hidden_field :friend_id, value: @user.id %>
+          <%= f.submit "Unfriend" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div>
+    <div
       class="grid grid-cols-1 justify-items-center w-full py-16 max-w-6xl mx-auto"
     >
-          <!-- Form -->
-          <% if current_user == @user %>
-            <%= render "posts/form", post: @post %>
-          <% end %>
-          <!-- Posts -->
-          <%= render @posts %>
-        </div>
-      </div>
+      <!-- Form -->
+      <% if current_user == @user %>
+        <%= render "posts/form", post: @post %>
+      <% end %>
+      <!-- Posts -->
+      <%= render @posts %>
     </div>
+  </div>
+</div>
