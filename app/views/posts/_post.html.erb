@@ -1,15 +1,17 @@
 <div
 class="w-full sm:w-10/12 lg:w-8/12 bg-white p-4 rounded-lg shadow-xl mb-4"
 >
-  <div class="flex gap-2 mb-2">
-    <%= image_tag post.author.profile_pic_url, class: "w-10 h-10 rounded-full" %>
-    <span class="font-medium"
+  <%= link_to user_path(post.author) do %>
+    <div class="flex gap-2 mb-2">
+      <%= image_tag post.author.profile_pic_url, class: "w-10 h-10 rounded-full" %>
+      <span class="font-medium"
     ><%= post.author.first_name %> <%= post.author.last_name %></span
   >
-  </div>
+    </div>
+  <% end %>
   <p class="text-xl font-light"><%= post.body %></p>
   <!-- Likes -->
-  <div class="flex items-center gap-2 mt-2">
+  <div class="flex items-center gap-2 my-2">
     <% if current_user.likes.where(post: post).exists? %>
       <% like = post.likes.find {|like| like.user_id == current_user.id} %>
       <%= link_to post_like_path(post, like), data: { turbo_method: "delete" } do %>
