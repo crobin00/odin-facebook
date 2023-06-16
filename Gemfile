@@ -9,6 +9,7 @@ gem "figaro"
 # gem "image_processing", "~> 1.2"
 gem "importmap-rails"
 gem "jbuilder"
+gem "letter_opener", group: :development
 gem "omniauth-facebook"
 gem "omniauth-rails_csrf_protection"
 gem "pg", "~> 1.1"
