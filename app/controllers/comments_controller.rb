@@ -19,4 +19,14 @@ class CommentsController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    
+    if current_user.comments.include?(@comment)
+      @comment.destroy
+    end
+
+    redirect_to root_path, status: :see_other
+  end
 end
