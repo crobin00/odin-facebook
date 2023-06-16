@@ -90,6 +90,7 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
+    ffi (1.15.5)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
     globalid (1.1.0)
@@ -97,6 +98,9 @@ GEM
     hashie (5.0.0)
     i18n (1.14.0)
       concurrent-ruby (~> 1.0)
+    image_processing (1.12.2)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     importmap-rails (1.1.6)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -121,6 +125,7 @@ GEM
       net-smtp
     marcel (1.0.2)
     method_source (1.0.0)
+    mini_magick (4.12.0)
     mini_mime (1.1.2)
     minitest (5.18.0)
     msgpack (1.7.1)
@@ -158,6 +163,7 @@ GEM
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
     pg (1.5.3)
+    pkg-config (1.5.2)
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -200,6 +206,10 @@ GEM
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
+    rmagick (5.2.0)
+      pkg-config (~> 1.4)
+    ruby-vips (2.1.4)
+      ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     snaky_hash (2.0.1)
       hashie
@@ -244,6 +254,7 @@ DEPENDENCIES
   debug
   devise
   figaro
+  image_processing (~> 1.2)
   importmap-rails
   jbuilder
   letter_opener
@@ -252,6 +263,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.5)
+  rmagick
   sprockets-rails
   stimulus-rails
   tailwindcss-rails

@@ -6,7 +6,8 @@ ruby "3.1.2"
 gem "bootsnap", require: false
 gem "devise"
 gem "figaro"
-# gem "image_processing", "~> 1.2"
+gem "rmagick"
+gem "image_processing", "~> 1.2"
 gem "importmap-rails"
 gem "jbuilder"
 gem "letter_opener", group: :development
