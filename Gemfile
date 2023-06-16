@@ -6,11 +6,11 @@ ruby "3.1.2"
 gem "bootsnap", require: false
 gem "devise"
 gem "figaro"
-gem "rmagick"
 gem "image_processing", "~> 1.2"
 gem "importmap-rails"
 gem "jbuilder"
 gem "letter_opener", group: :development
+gem "mini_magick"
 gem "omniauth-facebook"
 gem "omniauth-rails_csrf_protection"
 gem "pg", "~> 1.1"
