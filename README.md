@@ -25,8 +25,8 @@ Created as part of [The Odin Project](https://www.theodinproject.com) curriculum
 - ~~Allow posts to be edited~~
 - ~~Allow posts to be deleted~~
 - Add ability to post images
-- Allow comments to be edited
-- Allow comments to be deleted
+- ~~Allow comments to be edited~~
+- ~~Allow comments to be deleted~~
 - Allow nested comments
 - Allow user uploaded profile pictures
 - Improve look of user show page
