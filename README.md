@@ -24,7 +24,7 @@ Created as part of [The Odin Project](https://www.theodinproject.com) curriculum
 - Use Turbo Frames and Turbo Streams for posts, liking, and commenting to emulate a single-page application to improve user experience.
 - ~~Allow posts to be edited~~
 - ~~Allow posts to be deleted~~
-- Add ability to post images
+- ~~Add ability to post images~~
 - ~~Allow comments to be edited~~
 - ~~Allow comments to be deleted~~
 - Allow nested comments
