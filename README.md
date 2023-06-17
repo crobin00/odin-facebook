@@ -26,6 +26,13 @@ Created as part of [The Odin Project](https://www.theodinproject.com) curriculum
 
 [View the app live here.](https://odin-facebook-ny7o.onrender.com/)
 
+If you do not want to make an account:
+
+```
+email: example@example.com
+password: password
+```
+
 _Note: Due to the limitations of Render's free plan, all database data is wiped every 3 months and the server is shut down every month after 750 hours of uptime_
 
 #### Local
