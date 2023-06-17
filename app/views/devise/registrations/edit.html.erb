@@ -74,6 +74,10 @@
           </div>
         </div>
         <div>
+          <p class="text-sm font-extralight">Set Profile Picture</p>
+          <%= f.file_field :avatar, accept: 'image/png,image/jpeg', class: "mb-2" %>
+        </div>
+        <div>
           <%= f.submit "Update", class: "w-full bg-blue-500 h-10 rounded-md
         cursor-pointer text-white" %>
         </div>

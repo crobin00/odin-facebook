@@ -3,7 +3,7 @@
   <div class="flex gap-2 flex-col items-center gap-2 mt-16">
     <div class="flex gap-4 w-full bg-white p-4 rounded-lg shadow-xl max-w-md">
       <div>
-        <%= image_tag @user.profile_pic_url, class: "w-28 h-28 rounded-full" %>
+        <%= image_tag @user.avatar.variant(resize_to_fill: [112, 112]), class: "rounded-full" %>
       </div>
       <div class="self-center flex-1">
         <p class="text-2xl font-medium"

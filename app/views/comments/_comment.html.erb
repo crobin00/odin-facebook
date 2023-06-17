@@ -16,7 +16,7 @@
   <% end %>
   <div class="w-fit">
     <%= link_to user_path(comment.author), class: "flex gap-2 mb-2" do %>
-      <%= image_tag comment.author.profile_pic_url, class: "w-6 h-6 rounded-full" %>
+      <%= image_tag comment.author.avatar.variant(resize_to_fill: [24, 24]), class: "rounded-full" %>
       <span class="font-medium text-sm"
     ><%= comment.author.first_name %> <%= comment.author.last_name %></span
   >
