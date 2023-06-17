@@ -2,6 +2,8 @@
 
 A social media app inspired by Facebook.
 
+![Odin Features](/readme-images/odin-features.gif)
+
 ## About
 
 Created as part of [The Odin Project](https://www.theodinproject.com) curriculum.
@@ -58,6 +60,11 @@ Then visit http://localhost:3000/ to view the application.
 - ~~Allow user uploaded profile pictures~~
 - ~~Improve look of user show page~~
 - ~~Add ability to decline friend request~~
+- Fix performance issues
+
+## Known Issues
+
+- Sometimes images do not load correctly. A refresh should fix this
 
 ## Reflections
 
