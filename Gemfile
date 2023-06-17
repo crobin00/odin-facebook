@@ -5,6 +5,7 @@ ruby "3.1.2"
 
 gem "bootsnap", require: false
 gem "devise"
+gem 'faker'
 gem "figaro"
 gem "image_processing", "~> 1.2"
 gem "importmap-rails"

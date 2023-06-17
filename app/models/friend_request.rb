@@ -1,6 +1,7 @@
 class FriendRequest < ApplicationRecord
   validates :sent_user_id, presence: true
   validates :received_user_id, presence: true
+  validates_uniqueness_of :sent_user, :scope => [:received_user]
   validate :not_friends
   validate :not_pending
 
@@ -15,5 +16,9 @@ class FriendRequest < ApplicationRecord
 
   def not_pending
     errors.add(:already_pending, "friend request already sent") if FriendRequest.where(sent_user: sent_user, received_user: received_user).exists?
+  end
+
+  def not_self
+    errors.add(:self, "can't request yourself") if FriendRequest.where(sent_user: sent_user, received_user: received_user)
   end
 end
