@@ -49,13 +49,11 @@ User.all.each do |user|
   until friend != user
     friend = User.find(User.pluck(:id).sample)
   end
-  p friend
   request_open = FriendRequest.where(sent_user: user, received_user: friend).exists? || FriendRequest.where(sent_user: friend, received_user: user).exists?
   while request_open || friend == user
     friend = User.find(User.pluck(:id).sample)
     request_open = FriendRequest.where(sent_user: user, received_user: friend).exists? || FriendRequest.where(sent_user: friend, received_user: user).exists?
   end
-  p request_open
   user.friendships.create(friend: friend)
   friend.friendships.create(friend: user)
 end
