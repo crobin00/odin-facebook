@@ -18,6 +18,26 @@ Created as part of [The Odin Project](https://www.theodinproject.com) curriculum
 - Notifications page which displays all incoming friend requests
 - Sends welcome emails when a user signs up
 - Styled with Tailwind CSS
+- Deployed with [Render](https://render.com)
+
+## Usage
+
+#### Live
+
+[View the app live here.](https://odin-facebook-ny7o.onrender.com/)
+
+_Note: Due to the limitations of Render's free plan, all database data is wiped every 3 months and the server is shut down every month after 750 hours of uptime_
+
+#### Local
+
+To run this app locally, clone this repo, `cd` into the root direction and run:
+
+```
+bundle install
+bin/dev
+```
+
+Then visit http://localhost:3000/ to view the application.
 
 ## Possible Improvements
 
