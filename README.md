@@ -28,7 +28,7 @@ Created as part of [The Odin Project](https://www.theodinproject.com) curriculum
 - ~~Allow comments to be edited~~
 - ~~Allow comments to be deleted~~
 - Allow nested comments
-- Allow user uploaded profile pictures
+- ~~Allow user uploaded profile pictures~~
 - ~~Improve look of user show page~~
 - ~~Add ability to decline friend request~~
 
