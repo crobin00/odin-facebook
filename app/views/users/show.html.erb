@@ -1,13 +1,29 @@
 <div class="bg-sky-50 min-h-screen">
   <%= render partial: "/shared/basic_navbar" %>
-  <div class="flex flex-col items-center gap-2 mt-16">
-    <%= image_tag @user.profile_pic_url, class: "w-36 h-36 rounded-full" %>
-    <span class="text-3xl"
-    ><%= @user.first_name %> <%= @user.last_name %></span
+  <div class="flex gap-2 flex-col items-center gap-2 mt-16">
+    <div class="flex gap-4 w-full bg-white p-4 rounded-lg shadow-xl max-w-md">
+      <div>
+        <%= image_tag @user.profile_pic_url, class: "w-28 h-28 rounded-full" %>
+      </div>
+      <div class="self-center flex-1">
+        <p class="text-2xl font-medium"
+    ><%= @user.first_name %> <%= @user.last_name %></p
   >
-    <span><%= @user.email %></span>
-    <span><%= @user.gender.titleize %></span>
-    <span><%= link_to "#{@user.friends.count} #{@user.friends.count == 1 ? 'Friend' : 'Friends'}", friend_path(@user) %> </span>
+        <p><%= @user.email %></p>
+        <p><%= @user.gender.titleize %></p>
+      </div>
+    </div>
+    <div class="flex justify-evenly w-full bg-white p-4 rounded-lg shadow-xl max-w-md">
+      <div>
+        <%= link_to friend_path(@user) do %>
+          <span class="font-semibold"><%= @user.friends.count %> <span class="font-normal"><%= @user.friends.count == 1 ? 'Friend' : 'Friends' %></span></span>
+        <% end %>
+      </div>
+      <div class="w-0.5 bg-black"></div>
+      <div>
+        <span class="font-semibold"><%= @user.posts.count%> <span class="font-normal"><%= @user.posts.count == 1 ? 'Post' : 'Posts' %></span></span>
+      </div>
+    </div>
     <% if current_user != @user %>
       <% isRequestedFromThem = FriendRequest.where(sent_user: @user, received_user: current_user) %>
       <% isRequestedFromMe = FriendRequest.where(sent_user: current_user, received_user: @user) %>
